@@ -1,7 +1,7 @@
 {
-  "name": "node_baseline",
+  "name": "providers_services",
   "version": "1.0.0",
-  "description": "Node.js Baseline for Kot ERP Microservices",
+  "description": "Providers Microservices on KotERP",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
