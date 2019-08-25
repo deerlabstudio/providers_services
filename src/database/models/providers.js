@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     webpage: DataTypes.STRING,
     principal_phone: DataTypes.STRING,
     contact_phone: DataTypes.STRING,
-    status: DataTypes.BOOLEAN
+    status: DataTypes.BOOLEAN,
+    company: DataTypes.INTEGER
   }, {});
   Providers.associate = function(models) {
     // associations can be defined here

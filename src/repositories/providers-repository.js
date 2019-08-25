@@ -5,6 +5,15 @@ const all = async () => {
   return list;
 };
 
+const byCompany = async (company) => {
+  const list = await Providers.findAll({
+    where: {
+      company,
+    },
+  });
+  return list;
+};
+
 const one = async (id) => {
   const item = await Providers.findOne({ where: { id }, include: [ProvidersAddress] });
   return item;
@@ -19,6 +28,7 @@ const store = async (provider) => {
     webpage: provider.webpage,
     principal_phone: provider.principal_phone,
     contact_phone: provider.contact_phone,
+    company: provider.company,
     status: true,
   });
   return item;
@@ -33,6 +43,7 @@ const update = async (id, provider) => {
     webpage: provider.webpage,
     principal_phone: provider.principal_phone,
     contact_phone: provider.contact_phone,
+    company: provider.company,
     status: provider.status,
   }, { where: { id } });
 
@@ -56,6 +67,7 @@ const destroy = async (id) => {
 
 module.exports = {
   all,
+  byCompany,
   one,
   store,
   update,
