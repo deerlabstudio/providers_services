@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { Providers, ProvidersAddress } = require('../database/models');
 
 const all = async () => {
@@ -9,6 +10,16 @@ const byCompany = async (company) => {
   const list = await Providers.findAll({
     where: {
       company,
+    },
+  });
+  return list;
+};
+
+const findByTextAndCompany = async (company, text) => {
+  const list = await Providers.findAll({
+    where: {
+      company,
+      name: { [Op.like]: `%${text}%` },
     },
   });
   return list;
@@ -68,6 +79,7 @@ const destroy = async (id) => {
 module.exports = {
   all,
   byCompany,
+  findByTextAndCompany,
   one,
   store,
   update,
